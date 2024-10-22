@@ -25,7 +25,13 @@
 
     <!-- Custom Stylesheet -->
     <link type="text/css" rel="stylesheet" href="login-assets/css/style.css">
-
+    <style>
+        .form-group input:focus + label, .form-group input:not(:placeholder-shown) + label {
+            top: 0px!important;
+            left: 52px!important;
+            color: #000;
+        }
+   </style>
 </head>
 <body id="top">
 <div class="page_loader"></div>
@@ -40,37 +46,60 @@
                         <img src="assets/images/logo.png" alt="logo">
                     </a>
                     <h3>Sign Into Your Account</h3>
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>Sorry,</strong> Something went wrong!
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <form action="#" method="POST" id="commonForm">
+                    </div> -->
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Success!</strong> {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Whoops!</strong> There were some problems with your input.
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Error!</strong> {{ session('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
+                    <form action="{{ route('login') }}" method="POST" id="commonForm">
+                        @csrf
                         <div class="form-group position-relative clearfix">
-                            <input name="email" type="email" class="form-control" placeholder="Email Address" aria-label="Email Address">
+                            <input name="email" type="email" class="form-control" placeholder="Email Address" aria-label="Email Address" required>
                             <div class="login-popover login-popover-abs" data-bs-toggle="popover" data-bs-trigger="hover" title="Clarification" data-bs-content="And here's some amazing content. It's very engaging. Right?">
                                 <i class="fa fa-info-circle"></i>
                             </div>
                         </div>
                         <div class="form-group clearfix position-relative password-wrapper">
-                            <input name="password" type="password" class="form-control" autocomplete="off" placeholder="Password" aria-label="Password">
+                            <input name="password" type="password" class="form-control" autocomplete="off" placeholder="Password" aria-label="Password" required>
                             <i class="fa fa-eye password-indicator"></i>
                         </div>
                         <div class="checkbox form-group clearfix">
                             <div class="form-check float-start">
-                                <input class="form-check-input" type="checkbox" id="rememberme">
-                                <label class="form-check-label" for="rememberme">
-                                    Remember me
-                                </label>
+                                <input class="form-check-input" type="checkbox" id="rememberme" name="remember">
+                                <label class="form-check-label" for="rememberme">Remember me</label>
                             </div>
-                            <a href="forgot-password.php" class="link-light float-end forgot-password">Forgot your password?</a>
+                            <a href="{{ url('forgot-password') }}" class="link-light float-end forgot-password">Forgot your password?</a>
                         </div>
                         <div class="form-group clearfix mb-0">
-                            <a href="{{ url('/') }}"><button type="button" class="btn btn-primary btn-lg btn-theme">Login</button></a>
+                            <button type="submit" class="btn btn-primary btn-lg btn-theme">Login</button>
                         </div>
-                        <!-- <div class="extra-login clearfix">
-                            <span>Or Login With</span>
-                        </div> -->
                     </form>
+
                     <div class="clearfix"></div>
                     <!-- <div class="social-list clearfix">
                         <div class="icon facebook">

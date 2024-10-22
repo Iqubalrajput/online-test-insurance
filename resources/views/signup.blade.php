@@ -25,7 +25,13 @@
 
     <!-- Custom Stylesheet -->
     <link type="text/css" rel="stylesheet" href="login-assets/css/style.css">
-
+    <style>
+        .form-group input:focus + label, .form-group input:not(:placeholder-shown) + label {
+            top: 0px!important;
+            left: 52px!important;
+            color: #000;
+        }
+   </style>
 </head>
 <body id="top">
 <div class="page_loader"></div>
@@ -40,28 +46,48 @@
                         <img src="assets/images/logo.png" alt="logo">
                     </a>
                     <h3>Create an account</h3>
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Congrats,</strong> your account has been created!
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <form action="#" method="POST" id="commonForm">
+                    </div> -->
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{ session('success') }}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                    <form action="{{ route('register') }}" method="POST" id="commonForm">
+                            @csrf
+
+                            <!-- Display Validation Errors -->
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                         <div class="form-group position-relative clearfix">
-                            <input name="name" type="text" class="form-control" placeholder="Full Name" aria-label="Full Name">
+                            <input name="name" type="text" class="form-control" placeholder="Full Name" aria-label="Full Name" required>
                         </div>
                         <div class="form-group position-relative clearfix">
-                            <input name="email" type="email" class="form-control" placeholder="Email Address" aria-label="Email Address">
+                            <input name="email" type="email" class="form-control" placeholder="Email Address" aria-label="Email Address" required>
                             <div class="login-popover login-popover-abs" data-bs-toggle="popover" data-bs-trigger="hover" title="Clarification" data-bs-content="And here's some amazing content. It's very engaging. Right?">
                                 <i class="fa fa-info-circle"></i>
                             </div>
                         </div>
                         <div class="form-group clearfix position-relative password-wrapper">
-                            <input name="password" type="password" class="form-control" autocomplete="off" placeholder="Password" aria-label="Password">
+                            <input name="password" type="password" class="form-control" autocomplete="off" placeholder="Password" aria-label="Password" required>
                             <i class="fa fa-eye password-indicator"></i>
                         </div>
+                        
                         <div class="form-group checkbox clearfix">
                             <div class="clearfix float-start">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="rememberme">
+                                    <input class="form-check-input" type="checkbox" id="rememberme" required>
                                     <label class="form-check-label" for="rememberme">
                                         I agree to the terms of service
                                     </label>
@@ -69,10 +95,11 @@
                             </div>
                         </div>
                         <div class="form-group clearfix mb-0">
-                            <a href="{{ url('/login') }}"><button type="button" class="btn btn-primary btn-lg btn-theme">Register</button></a>
+                            <button type="submit" class="btn btn-primary btn-lg btn-theme">Register</button>
                         </div>
-                      
                     </form>
+
+
                     <div class="clearfix"></div>
                    
                     <p>Already a member? <a href="{{ url('/login') }}">Login here</a></p>

@@ -88,10 +88,27 @@
        
        </div>
       </div>
-      <div class="logincontainer">
+      <!-- <div class="logincontainer">
            <a href="{{ url('/login') }}"> <button type="button">Login/Register</button></a>
          </div>
-    </div>
+    </div> -->
+    <div class="logincontainer">
+    @if(Auth::check())
+    <a href="{{ url('/profile') }}">
+            <button type="button">Profile</button>
+        </a>
+        <!-- User is logged in -->
+        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+            @csrf
+            <button type="submit">Logout</button>
+        </form>
+    @else
+        <!-- User is not logged in -->
+        <a href="{{ url('/login') }}">
+            <button type="button">Login/Register</button>
+        </a>
+    @endif
+</div>
 
     <div class="dropdown profileDrop_menu">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

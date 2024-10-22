@@ -15,7 +15,7 @@
 
             <div class="bannerbuttonhome">
 
-                <a href="insurances.php"> <button type="button" class="commonButtn_arrow btnlarge">Get Started
+                <a href="{{ url('/insurances') }}"> <button type="button" class="commonButtn_arrow btnlarge">Get Started
                         <iconify-icon icon="gravity-ui:arrow-right"></iconify-icon></button>
                 </a>
             </div>
@@ -33,7 +33,7 @@
                     <p>Al Hamraa Company is an Insurance firm which started operating in 2001 providing advice and
                         professional assistance to clients to protect their property, assets, employees, earnings, and
                         liabilities on a cost-effective basis.</p>
-                    <a href="about-us.php"> <button type="button" class="commonButtn_arrow btnlarge btncomn_grey">View
+                    <a href="{{ url('/about-us') }}"> <button type="button" class="commonButtn_arrow btnlarge btncomn_grey">View
                             More <iconify-icon icon="gravity-ui:arrow-right"></iconify-icon></button>
                     </a>
                 </div>
@@ -58,7 +58,7 @@
                         <p>We help you make an informed decision and ensure your travels are worry-free</p>
 
                     </div>
-                    <a href="insurances.php"> <button type="button" class="commonButtn_arrow btnlarge btncomn_grey">View
+                    <a href="{{ url('/about-us') }}"> <button type="button" class="commonButtn_arrow btnlarge btncomn_grey">View
                             All <iconify-icon icon="gravity-ui:arrow-right"></iconify-icon></button>
                     </a>
                 </div>
@@ -120,7 +120,7 @@
         <div class="getintouch_content">
             <span>GET IN TOUCH WITH US</span>
             <h1>Have a question or need assistance?</h1>
-            <a href="contact-us.php"> <button type="button" class="commonButtn_arrow btnlarge btncomn_grey">Contact Us
+            <a href="{{ url('/contact-us') }}"> <button type="button" class="commonButtn_arrow btnlarge btncomn_grey">Contact Us
                     <iconify-icon icon="gravity-ui:arrow-right"></iconify-icon></button>
             </a>
         </div>

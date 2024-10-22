@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/about-us', function () {
     return view('about-us');
@@ -26,24 +27,37 @@ Route::get('/about-us', function () {
 
 Route::get('/insurances', function () {
     return view('insurances');
-});
+})->name('insurances');
+
 Route::get('/insurances-details', function () {
     return view('insurances_details');
 });
-Route::get('/insurances-form', function () {
-    return view('insurances-form');
-});
+
 
 Route::get('/contact-us', function () {
     return view('contact-us');
 });
-Route::get('/profile', function () {
-    return view('profile');
-});
+
 Route::get('/login', function () {
     return view('login');
 });
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+
 Route::get('/signup', function () {
     return view('signup');
 });
 
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/insurances-form', function () {
+        return view('insurances-form');
+    });
+    Route::get('/profile', function () {
+        return view('profile');
+    });
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+   
+});
