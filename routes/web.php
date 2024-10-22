@@ -37,6 +37,9 @@ Route::get('/insurances-form', function () {
 Route::get('/contact-us', function () {
     return view('contact-us');
 });
+Route::get('/profile', function () {
+    return view('profile');
+});
 Route::get('/login', function () {
     return view('login');
 });
