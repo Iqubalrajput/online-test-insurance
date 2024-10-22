@@ -146,5 +146,49 @@
     </div>
 </section>
 
+<section class="Insurance_Detail_container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="insurancePAGE_title">
+                     <h2>Wide Range of Insurance Services</h2>
+                     <p>We, at Al-Hamraa Insurance, are offering varieties of insurance products and services...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="insuramce_subCards">
+            <div class="row">
+                @foreach ($plans as $plan)
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img src="{{ asset('assets/images/' . $plan->image) }}" class="card-img-top" alt="{{ $plan->name }}">
+                        <div class="card-body">
+                            <h5 class="card-title insu_cardTitle">{{ $plan->name }}</h5>
+                            <div class="planlist_detail">
+                                <ul>
+                                    <li>
+                                        <div class="iconcheck__"><iconify-icon icon="teenyicons:tick-circle-solid"></iconify-icon></div>
+                                        <div class="plandetailpers">
+                                            <p><strong>Overseas Hospitalization:</strong>{{ $plan->description }}</p>
+                                        </div>
+                                    </li>
+                                    <!-- Add more features here as needed -->
+                                </ul>
+                            </div>
+                            <div class="ins_cardBTN">
+                                <a href="{{ url('/insurances-details') }}">
+                                    <button type="button" class="commonButtn_arrow btnlarge btncomn_grey">Read More <iconify-icon icon="gravity-ui:arrow-right"></iconify-icon></button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</section>
+
 
 @endsection

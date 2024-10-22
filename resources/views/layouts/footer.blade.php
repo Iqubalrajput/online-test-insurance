@@ -290,6 +290,131 @@
     select.select2();
   });
 </script>
+<script>
+$(document).ready(function() {
+    $('#updateForm').on('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Get input values
+        let name = $('input[name="name"]').val();
+        let email = $('input[name="email"]').val();
+        let mobile_no = $('input[name="mobile_no"]').val();
+
+        // Front-end validation
+        let errors = {};
+        
+        // Check if name is empty
+        if (!name) {
+            errors.name = 'First name is required.';
+        }
+        
+        // Check if email is empty
+        if (!email) {
+            errors.email = 'Email is required.';
+        }
+
+        // Check if mobile number is empty or not exactly 10 digits
+        if (!mobile_no) {
+            errors.mobile_no = 'Mobile number is required.';
+        } else if (mobile_no.length !== 10) {
+            errors.mobile_no = 'Mobile number must be exactly 10 digits.';
+        }
+
+        // If there are errors, display them and exit
+        if (Object.keys(errors).length > 0) {
+            let errorMessage = '<div class="alert alert-danger">';
+            $.each(errors, function(key, value) {
+                errorMessage += value + '<br>';
+            });
+            errorMessage += '</div>';
+            $('#responseMessage').html(errorMessage);
+            return; // Exit the function
+        }
+
+        // Laravel route() helper to inject the URL into the script
+        let updateUrl = "{{ route('user.update') }}"; // Laravel route
+
+        // CSRF token
+        let token = $('input[name=_token]').val();
+
+        // AJAX request
+        $.ajax({
+            url: updateUrl, // URL from Laravel route
+            method: 'POST',
+            data: $(this).serialize(), // Serialize form data
+            headers: {
+                'X-CSRF-TOKEN': token // CSRF token for Laravel
+            },
+            success: function(response) {
+                $('#responseMessage').html('<div class="alert alert-success">' + response.success + '</div>');
+                setTimeout(function() {
+                    location.reload(); // Refresh the page
+                }, 1000);
+              },
+            error: function(xhr) {
+                if (xhr.status === 422) {
+                    let errors = xhr.responseJSON.errors;
+                    let errorMessage = '<div class="alert alert-danger">';
+                    $.each(errors, function(key, value) {
+                        errorMessage += value[0] + '<br>';
+                    });
+                    errorMessage += '</div>';
+                    $('#responseMessage').html(errorMessage);
+                }
+            }
+        });
+    });
+});
+
+
+function cancelUpdate() {
+    // Redirect or clear the form as needed
+    $('#updateForm')[0].reset(); // Clear the form fields
+}
+$(document).ready(function() {
+    $('#passwordUpdateForm').on('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Laravel route() helper to inject the URL into the script
+        let updateUrl = "{{ route('password.update') }}"; // Laravel route
+
+        // CSRF token
+        let token = $('input[name=_token]').val();
+
+        // AJAX request
+        $.ajax({
+            url: updateUrl, // URL from Laravel route
+            method: 'POST',
+            data: $(this).serialize(), // Serialize form data
+            headers: {
+                'X-CSRF-TOKEN': token // CSRF token for Laravel
+            },
+            success: function(response) {
+                $('#responseMessage').html('<div class="alert alert-success">' + response.success + '</div>');
+                
+                // Page refresh after 1 second (optional)
+                setTimeout(function() {
+                    location.reload(); // Refresh the page
+                }, 1000);
+            },
+            error: function(xhr) {
+                let errorMessage = '<div class="alert alert-danger">';
+                if (xhr.status === 422) {
+                    let errors = xhr.responseJSON.errors;
+                    $.each(errors, function(key, value) {
+                        errorMessage += value[0] + '<br>'; // Show each error
+                    });
+                } else {
+                    errorMessage += 'An error occurred. Please try again.'; // General error message
+                }
+                errorMessage += '</div>';
+                $('#responseMessage_pass').html(errorMessage); // Display the error message
+            }
+        });
+    });
+});
+
+</script>
 
 </body>
 </html>

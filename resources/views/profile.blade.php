@@ -49,43 +49,42 @@
                                             <div class="">
                                                     <div class="settings-form">
                                                         <h4 class="tab_title">Personal Information</h4>
-                                                        <form>
-                                                            <div class="row">
-                                                                <div class="col-md-6">
+                                                        <form id="updateForm" method="POST">
+                                                         @csrf <!-- CSRF token for Laravel -->
+                                                         <div class="row">
+                                                            <div class="col-md-6">
                                                                   <div class="form-group">
-                                                                    <input type="email" placeholder="Liam" >
-                                                                    <label class="form-label">First Name</label>
+                                                                     <input type="text" name="name" value="{{ old('name', $user->name) }}"placeholder="Enter First Name" required>
+                                                                     <label class="form-label">First Name</label>
                                                                   </div>
-                                                       
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                  <div class="form-group">
-                                                                    <input type="password" placeholder="Risher" >
-                                                                    <label class="form-label">Last Name</label>
-                                                                  </div>
-                                                                    
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                     <input type="text" placeholder="liamrisher@gmail.com" >
-                                                                     <label class="form-label">Email</label>
-                                                                  </div>
-                                                               
                                                             </div>
                                                             <div class="col-md-6">
                                                                   <div class="form-group">
-                                                                    <input type="text" placeholder="+91 789 278 4432" >
-                                                                    <label class="form-label">Contact Number</label>
+                                                                     <input type="text" name="last_name" value="{{ old('last_name', $user->last_name) }}" placeholder="Enter Last name" >
+                                                                     <label class="form-label">Last Name</label>
                                                                   </div>
                                                             </div>
-
+                                                            <div class="col-md-6">
+                                                                  <div class="form-group">
+                                                                     <input type="email" name="email" value="{{ old('email', $user->email) }}" placeholder="Enter Email" required>
+                                                                     <label class="form-label">Email</label>
+                                                                  </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                  <div class="form-group">
+                                                                     <input type="text" name="mobile_no"  value="{{ old('mobile_no', $user->mobile_no) }}" placeholder="Enter Mobile no" required>
+                                                                     <label class="form-label">Contact Number</label>
+                                                                  </div>
+                                                            </div>
                                                             <div class="col-md-12 text-end">
-                                                            <button class="btn theme_btn" type="submit">Update</button>
-                                                            <button class="btn theme_btn theme_btn2" type="submit">Cancel</button>
+                                                                  <button class="btn theme_btn" type="submit">Update</button>
+                                                                  <button class="btn theme_btn theme_btn2" type="button" onclick="cancelUpdate()">Cancel</button>
                                                             </div>
-                                                            </div>
-                                                           
-                                                        </form>
+                                                         </div>
+                                                      </form>
+
+<div id="responseMessage"></div> <!-- Div to display messages -->
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -93,37 +92,39 @@
                                             <div class="">
                                                     <div class="settings-form">
                                                        <h4 class="tab_title">Change Password</h4>
-                                                        <form>
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <input type="password" placeholder="*****" >
-                                                                    <label class="form-label">Old Password</label>
-                                                                  </div>
-                                                                </div>
+                                                       <form id="passwordUpdateForm">
+                                       <div class="row">
+                                          <div class="col-md-4">
+                                                <div class="form-group">
+                                                   <input type="password" name="old_password" placeholder="*****" required>
+                                                   <label class="form-label">Old Password</label>
+                                                </div>
+                                          </div>
 
-                                                                <div class="col-md-4">
-                                                                     <div class="form-group">
-                                                                    <input type="password" placeholder="*****" >
-                                                                    <label class="form-label">New Password</label>
-                                                                  </div>
-                                                              
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                <input type="password" placeholder="*****" >
-                                                                <label class="form-label">Confirm Password</label>
-                                                               </div>
-                                                               
-                                                            </div>
-                                                          
-                                                            <div class="col-md-12 text-end">
-                                                            <button class="btn theme_btn" type="submit">Update</button>
-                                                            <button class="btn theme_btn theme_btn2" type="submit">Cancel</button>
-                                                            </div>
-                                                            </div>
-                                                           
-                                                        </form>
+                                          <div class="col-md-4">
+                                                <div class="form-group">
+                                                   <input type="password" name="new_password" placeholder="*****" required>
+                                                   <label class="form-label">New Password</label>
+                                                </div>
+                                          </div>
+
+                                          <div class="col-md-4">
+                                                <div class="form-group">
+                                                   <input type="password" name="confirm_password" placeholder="*****" required>
+                                                   <label class="form-label">Confirm Password</label>
+                                                </div>
+                                          </div>
+
+                                          <div class="col-md-12 text-end">
+                                                <button class="btn theme_btn" type="submit">Update</button>
+                                                <button class="btn theme_btn theme_btn2" type="button" onclick="cancelUpdate()">Cancel</button>
+                                          </div>
+                                       </div>
+                                    </form>
+                                    <div id="responseMessage_pass" style="margin-top: 20px;"></div>
+
+<div id="responseMessage"></div> <!-- For displaying response messages -->
+
                                                     </div>
                                                 </div>
                                                

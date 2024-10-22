@@ -94,14 +94,22 @@
     </div> -->
     <div class="logincontainer">
     @if(Auth::check())
-    <a href="{{ url('/profile') }}">
-            <button type="button">Profile</button>
-        </a>
-        <!-- User is logged in -->
-        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-            @csrf
-            <button type="submit">Logout</button>
-        </form>
+        <div class="dropdown">
+        <i class="fa fa-user dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i> 
+
+        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+            <li>
+                <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
+            </li>
+            <li>
+                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="dropdown-item">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
     @else
         <!-- User is not logged in -->
         <a href="{{ url('/login') }}">
