@@ -1,0 +1,1748 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+font-family: 'IBM Plex Sans', sans-serif;
+overflow-x: hidden;
+}
+p{
+    margin-bottom: 0px;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+body{
+    scroll-behavior: smooth;
+}
+
+#navbar_Menu li{
+ padding: 0.5rem  30px;
+}
+.nav-link.active {
+    color: #EE1D23 !important;
+    border-bottom: 2px solid #EE1D23;
+    font-weight: 600 !important;
+}
+
+#navbar_Menu li a {
+	font-size: 15px;
+	font-weight: 500;
+	color: #000;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.callUs_section {
+	display: flex;
+	align-items: center;
+}
+.iconcall {
+	width: 45px;
+	height: 45px;
+	background: #F1F1F1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	margin-right: 10px;
+}
+.iconcall iconify-icon {
+	color: #EE1D23;
+	font-size: 20px;
+}
+.contant_phonetext span {
+	font-size: 14px;
+	font-weight: 600;
+}
+.contant_phonetext p {
+	font-size: 15px;
+	font-weight: 400;
+}
+.navRight_login {
+	display: flex;
+	align-items: center;
+}
+.logincontainer {
+	margin-left: 30px;
+}
+.logincontainer button {
+	padding: 11px 26px;
+	background: #EE1D23;
+	color: #fff;
+	outline: none;
+	border: none;
+	border-radius: 3px;
+	font-size: 14px;
+	font-weight: 600;
+}
+.header_topbar ul{
+    list-style-type:none;
+}
+.lefttopcontanet {
+	display: inline-block;
+}
+.header_topbar ul li a{
+    display: flex;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+}
+
+.header_topbar .lefttopcontanet ul li a iconify-icon {
+	color: #EE1D23;
+	font-size: 17px;
+	line-height: 0px;
+	height: 14px;
+    margin-right: 5px;
+}
+.Topbar_Container{
+    border-bottom: 1px solid #D1D1D1;
+}
+.header_topbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.Righttophed_content ul{
+    display: flex;
+    align-items: center;
+}
+.Righttophed_content ul li a iconify-icon {
+	font-size: 25px;
+    color: #EE1D23;
+}
+.Righttophed_content ul li{
+    padding: 20px;
+}
+.Righttophed_content ul li:nth-child(1){
+  border-left: 1px solid #D1D1D1;
+  border-right: 1px solid #D1D1D1;
+}
+.Righttophed_content ul li:nth-child(2){
+    border-right: 1px solid #D1D1D1;
+}
+
+.navbar-toggler iconify-icon {
+    font-size: 30px;
+}
+
+.navbar.navbar-expand-lg {
+	position: relative;
+}
+
+.CustomHeader .container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.CustomHeader .container{
+    padding-left: 0px;
+	padding-right: 0px;
+}
+.footer_location p {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	color: #fff;
+	font-size: 14px;
+}
+.footer_location p iconify-icon{
+    position: relative;
+    top: 5px;
+    margin-right: 6px;
+    font-size: 20px;
+} 
+.footer_right_widgets ul li {
+  padding: 10px 0px;
+}
+
+.footer_right_widgets ul li a {
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+    color: #fff;
+    font-size: 14px;
+}
+.footer_right_widgets ul li a iconify-icon{
+    margin-right: 6px;
+    font-size: 20px;
+}
+.footer_right_widgets h1 {
+	margin-bottom: 30px;
+	font-size: 18px;
+	font-weight: 600;
+	color: #fff;
+    position: relative;
+    padding-bottom: 10px;
+}
+.footer_right_widgets h1::before{
+    position: absolute;
+    content: "";
+    width: 36px;
+    height: 2px;
+    background: #fff;
+    left: 0;
+    bottom: 0px;
+}
+.Footer_container {
+	background: rgb(235,25,34);
+	background: linear-gradient(90deg, rgba(235,25,34,1) 0%, rgba(114,19,23,1) 100%);
+    padding: 60px 0px 30px 0px;
+}
+.ftsocial_media{
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.ftsocial_media li{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background: #fff;
+    margin-right: 10px;
+}
+.ftsocial_media li a{
+    display: flex;
+}
+.ftsocial_media li a iconify-icon {
+	color: #EE1D23;
+	margin-right: 0px !important;
+	font-size: 20px;
+}
+
+.footer_left_widgets {
+    margin-top: 30px;
+}
+.footer_left_widgets h1 {
+	margin-bottom: 10px;
+    font-size: 18px;
+	font-weight: 600;
+	color: #fff;
+    position: relative;
+    padding-bottom: 10px;
+}
+.footer_left_widgets h1::before{
+    position: absolute;
+    content: "";
+    width: 36px;
+    height: 2px;
+    background: #fff;
+    left: 0;
+    bottom: 0px;
+}
+.footer_left_widgets p{
+    color: #fff;
+    font-size: 15px;
+}
+.leftlogofooter_section {
+	padding-right: 50px;
+	border-right: 1px solid #BFBFBF;
+	margin-right: 40px;
+}
+.CopyRights_footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid #BFBFBF;
+	margin-top: 40px;
+	padding: 30px 0px 0px 0px;
+}
+.ftCopyright_left p{
+    color: #fff;
+    font-size: 15px;
+}
+.ftCopyright_right ul{
+    display: flex;
+    align-items: center;
+}
+.ftCopyright_right ul li{
+    margin-right: 12px;
+}
+
+.ftCopyright_right ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+#navbar_Menu li a:hover {
+  color: #EE1D23;
+  }
+/* header footer style end */
+
+
+/* home page style start */
+
+.Home_banner{
+    position: relative;
+    height: 650px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.Home_banner::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0000006b;
+}
+.banner_content{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.banner_content h1 {
+    color: #F2F2F2;
+    font-size: 75px;
+    font-weight: bold;
+    line-height: 71px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.banner_content span {
+	color: #fff;
+	font-size: 16px;
+	position: relative;
+    padding-bottom: 12px;
+}
+
+.banner_content span::before{
+    position: absolute;
+    content: "";
+    width: 36px;
+    height: 2px;
+    background: #fff;
+    left: 0;
+    bottom: 0px;
+} 
+.banner_content p{
+    font-size: 15px;
+    color: #fff;
+    width: 60%;
+}
+.commonButtn_arrow{
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.commonButtn_arrow iconify-icon{
+    font-size: 22px;
+    margin-left: 20px;
+}
+.bannerbuttonhome{
+    margin-top: 40px;
+}
+.home_about {
+	padding: 60px 0px 110px 0px;
+    background: url(../images/patternshape.png);
+    background-size: cover;
+    background-position: center;
+}
+.commonsection_content span{
+    color: #EE1D23;
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+    padding-bottom: 12px;
+}
+.commonsection_content  span::before{
+    position: absolute;
+    content: "";
+    width: 36px;
+    height: 3px;
+    background: #D1D1D1;
+    left: 0;
+    bottom: 0px;
+} 
+
+.commonsection_content h1{
+    font-weight: bold;
+    font-size: 40px;
+    color: #EE1D23;
+    margin: 30px 0px;
+}
+.commonsection_content p{
+    font-size: 15px;
+}
+.commonsection_content button{
+    margin-top: 40px;
+}
+.commonButtn_arrow.btncomn_grey{
+    background: #E3E3E3;
+}
+.commonButtn_arrow:hover{
+    background: #EE1D23;
+    color: #fff;
+}
+.commonButtn_arrow.btncomn_grey:hover{
+    background: #EE1D23;
+    color: #fff;
+}
+.imagesection_rightAB .overlapimg1{
+	text-align: right;
+	position: relative;
+}
+
+.imagesection_rightAB {
+	position: relative;
+	text-align: right;
+}
+.overlapimg1 {
+    max-width: 50%;
+}
+.overlapimg2 {
+	position: absolute;
+	left: 100px;
+	top: 62px;
+	max-width: 50%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.home_about .row {
+	align-items: center;
+}
+.allInsurances{
+    background: #EAEAEA94;
+    padding: 60px 0px;
+}
+.allinsuranse_desc{
+    margin-top: 30px;
+}
+.insurance_itemcard {
+	position: relative;
+	margin-right: 10px !important;
+	height: 320px;
+}
+.insurance_itemcard:last-child{
+    margin-right: 0px;
+}
+.insurance_itemcard .insurance_Cardimage img{
+    width: 100%;
+}
+.insuranceCardContent {
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	bottom: 25px;
+	padding: 0px 20px;
+}
+.insuranceCardContent h1 {
+	color: #fff;
+	font-size: 25px;
+	font-weight: bold;
+}
+.insuright_icon {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+	background: #fff;
+	margin-right: 10px;
+}
+
+.insurance_itemcard::before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+    background: linear-gradient(176deg, rgba(251, 251, 251, 0) 0%, rgba(0, 0, 0, 0.58) 100%);
+}
+.insurance_items {
+	display: flex;
+	width: 100%;
+}
+.allInsurances .allabout_insurance{
+    padding-left: 106px;
+}
+.allInsurances .container-fluid{
+    padding: 0px;
+}
+
+.slick-list.draggable{
+    padding-left: 0px !important;
+}
+.allInsurances .row{
+    align-items: center;
+}
+.insurance_Cardimage {
+	height: 100%;
+}
+.insurance_Cardimage img{
+    height: 100%;
+    object-fit: cover;
+}
+
+.haveaquestion{
+    padding: 60px 0px 110px 0px;
+    background: url(../images/patternshape.png);
+      background-size: auto;
+    background-size: cover;
+    background-position: center;
+}
+.getintouch_content {
+	width: 40%;
+	text-align: center;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.getintouch_content span{
+    color: #000;
+    font-weight: 600;
+}
+
+.getintouch_content h1{
+    color: #EE1D23;
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: 12px;
+}
+.getintouch_content button{
+    margin-top: 30px;
+}
+
+
+/* ****************************
+ 
+about us page style start
+  
+******************************* */
+.common_inner_banner{
+	position: relative;
+	height: 350px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.innerbanner_breadcrums {
+	position: absolute;
+	display: inline-block;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50% , -50%);
+}
+.innerbanner_breadcrums h1{
+    font-weight: bold;
+    font-size: 50px;
+    color: #fff;
+}
+.breadcrumb {
+	display: flex;
+	justify-content: center;
+}
+.breadcrumb li a{
+    text-decoration: none;
+    color: #fff;
+}
+.breadcrumb-item.active{
+    color: #fff;
+    font-weight: bold;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+	content: "\f054";
+	font-family: "Font Awesome 5 Free";
+	font-style: normal;
+	font-variant-caps: normal;
+	font-variant-ligatures: normal;
+	font-weight: 900;
+	height: 6px;
+	line-height: 26px;
+	text-rendering: auto;
+	width: 17px;
+	-webkit-font-smoothing: antialiased;
+	color: #fff;
+}
+.companyabout_detail{
+    margin-top: 40px;
+}
+
+.companyabout_detail p{
+    margin-bottom: 12px;
+}
+.AboutOurCompany {
+	padding: 60px 0px;
+}
+.AboutOurCompany .row{
+    align-items: center;
+}
+.image_abexperi {
+	text-align: center;
+    width: 100%;
+}
+.image_abexperi img{
+    width: 100%;
+}
+.abgt_cmp_rightimg {
+	width: 85%;
+	margin: 0 auto;
+    position: relative;
+}
+.experience_content {
+	position: absolute;
+	top: 0;
+	transform: translate(0% , 0%);
+	left: 0;
+	text-align: center;
+	width: calc(100% - 200px);
+	height: calc(100% - 200px);
+	background: #0000007d;
+	border: 10px solid #fff;
+	margin: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.experience_content h2{
+  color: #fff;
+  font-weight: bold;
+  font-size: 35px;
+}
+.aboutCMPY_centertext {
+	margin-top: 50px;
+}
+.aboutCMPY_centertext h2{
+	text-align: center;
+	color: #EE1D23;
+    font-size: 40px;
+	font-weight: 600;
+}
+.vision_description{
+    margin: 30px 0px;
+}
+.vision_image_box img {
+	width: 100%;
+}
+.vision_content_box {
+	height: 100%;
+	width: 100%;
+	background: #f7f7f7ab;
+	position: relative;
+	padding-left: 50px;
+}
+.vision_content_box .aboutCompany.commonsection_content {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.vision_content_container {
+	background: url(../images/patternshape.png);
+	background-size: auto;
+	background-size: cover;
+	background-position: center;
+}
+.vision_content_container .col-lg-6{
+    padding: 0px;
+}
+.vision_description {
+	margin: 30px 0px;
+	padding-right: 100px;
+}
+
+.OurValues {
+	padding: 60px 0px;
+}
+.valuecd_content {
+	margin-top: 20px;
+}
+.value_Card .valuecd_content h2{
+    color: #EE1D23;
+    font-size: 18px;
+}
+.value_Card .valuecd_content p{
+    font-size: 14px;
+    color: #4A4A4A;
+}
+.value_Card {
+	text-align: center;
+	border: 1px solid #D4D4D4;
+	padding: 50px 30px;
+	border-radius: 10px;
+	height: 200px;
+}
+.value_Card:hover{
+    border: 1px solid #EE1D23;
+}
+.valuecd_icon {
+	margin-top: -85px;
+}
+
+.centersection_heading {
+	text-align: center;
+	margin-bottom: 80px;
+}
+
+.centersection_heading h1{
+    display: inline-block;
+}
+.centersection_heading h1 {
+	display: inline-block;
+	position: relative;
+    padding-bottom: 12px;
+}
+
+.centersection_heading h1::before {
+	position: absolute;
+	content: "";
+	width: 45px;
+	height: 3px;
+	background: red;
+	bottom: 0px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.Insurance_Detail_container{
+    padding: 60px 0px;
+}
+.insurancePAGE_title{
+    text-align: center;
+}
+.insurancePAGE_title h2{
+    font-size: 35px;
+    color: #EE1D23;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.insurancePAGE_title p{
+    font-size: 15px;
+    color: #4A4A4A;
+}
+.planlist_detail ul li {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 15px;
+}
+.iconcheck__ {
+	position: relative;
+	top: 3px;
+	margin-right: 7px;
+	color: #EE1D23;
+}
+.planlist_detail {
+	margin-top: 20px;
+}
+.insu_cardTitle{
+    font-weight: bold;
+    font-size: 21px;
+}
+.ins_cardBTN{
+    display: flex;
+    justify-content: right;
+}
+
+.card-img-top {
+	height: 300px;
+	object-fit: cover;
+}
+.insuramce_subCards{
+    margin-top: 70px;
+}
+.ins_cardBTN a{
+    text-decoration: none;
+}
+.Insurance_Benefits_section {
+	padding: 0px 0px 60px 0px;
+}
+.icon_left_beni {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+	background: #F1F1F1;
+	margin-right: 10px;
+}
+.benefits_carddtr ul li{
+    margin-bottom: 15px;
+}
+.benefits_carddtr ul li {
+	display: flex;
+	justify-content: flex-start;
+	border: 1px solid #B4B4B4;
+	padding: 17px;
+	border-radius: 5px;
+}
+.benefits_carddtr ul li:hover{
+    background: #cccccc24;
+}
+.benefits_carddtr {
+	margin-top: 60px;
+}
+.contentlist_beneif h3{
+    font-size: 18px;
+    font-weight: 600;
+}
+.icon_left_beni img {
+	width: 14px !important;
+}
+.benefits_Image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.benefits_Image {
+    height: 600px;
+  }
+
+.weCovered{
+    padding: 60px 0px;
+    background: #EAEAEA99;
+}
+.Covered_cards_items{
+    margin-top: 40px;
+}
+.covered_Item .coveredlhj_icon{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background: #fff;
+    margin-right: 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    position: relative;
+  top: 8px;
+}
+
+.covered_Item .coveredlhj_icon img{
+    width: 15px;
+}
+.Covered_icoTitle {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 15px;
+}
+
+.crvc_Title h2 {
+	font-size: 23px;
+	font-weight: bold;
+}
+
+.covered_Item p {
+	color: #4A4A4A;
+}
+.covered_Item {
+	padding: 40px;
+	background: #fff;
+	border-radius: 20px;
+	margin-bottom: 20px;
+	height: 250px;
+}
+
+.weCovered .centersection_heading {
+	text-align: center;
+	margin-bottom: 40px;
+}
+.commonsection_content a{
+   text-decoration: none;
+}
+.Contactaddress_area .covered_Item {
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.Contactaddress_area .Covered_cards_items {
+    margin-top: 0px;
+  }
+  .Contactaddress_area {
+	margin-top: -60px;
+	z-index: 1000;
+	position: relative;
+}
+
+.Contactaddress_area .Covered_icoTitle {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+.Contactaddress_area .covered_Item .coveredlhj_icon {
+	top: 0px;
+}
+.Contactaddress_area .covered_Item {
+	padding: 40px;
+	background: #fff;
+	border-radius: 20px;
+	margin-bottom: 20px;
+	height: 220px;
+}
+.contactMobilesec {
+	margin-top: 20px;
+	display: flex;
+	align-items: flex-start;
+	background: #F1F1F178;
+	padding: 20px;
+	border-radius: 12px;
+}
+.mobilenumbers {
+	margin-left: 15px;
+}
+.mobilenumbers h3 {
+	font-size: 18px;
+}
+.mobilecont_iconlgt {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+	background: #fff;
+	margin-right: 10px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.mobilenumbers ul{
+    display: flex;
+    align-items: center;
+}
+.mobilenumbers ul li {
+    margin-right: 12px;
+    border-right: 2px solid #d1d1d1;
+    padding-right: 12px;
+  }
+.mobilenumbers ul li a{
+    color: #000;
+    font-size: 14px;
+}
+
+.contact_Form {
+	padding: 60px 0px;
+}
+
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #333;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: 0.3s ease all;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #3498db;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    color: #000;
+}
+.form-group label {
+	transition: 0.3s ease all;
+	background: #fff;
+	color: #000 !important;
+	padding: 0px 20px;
+	font-size: 14px !important;
+	font-weight: 500;
+}
+
+textarea {
+	width: 100%;
+	height: 80px;
+	padding: 15px;
+	font-size: 16px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+}
+textarea:focus-visible {
+	box-shadow: none;
+	outline: none;
+}
+
+
+.form-group label {
+	position: absolute;
+	top: -10px;
+	left: 10px;
+	color: #333;
+	font-size: 16px;
+	pointer-events: none;
+	transition: 0.3s ease all;
+}
+.textareaform_GRP label {
+	position: absolute;
+	top: -10px !important;
+}
+.Frm_Submit_button {
+	margin-top: 10px;
+	text-align: right;
+}
+.Frm_Submit_button button {
+	padding: 10px 40px;
+	background: #EE1D23;
+	color: #fff;
+	outline: none;
+	border: none;
+	border-radius: 4px;
+}
+.Contact_FromContainer h2{
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 60px;
+}
+.Contact_FromContainer {
+	padding: 30px;
+	border: 1px solid #eaeaea;
+	border-radius: 5px;
+	background: #fff;
+}
+
+.contact_Form .row{
+    align-items: center;
+}
+.form-group input:focus {
+	border-color: #080908;
+}
+textarea:focus {
+	border: 1px solid #080908;
+}
+
+.contentlist_beneif {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+}
+.contentlist_beneif h3{
+    width: 80%;
+}
+.benefits_carddtr p {
+	font-size: 18px;
+	font-weight: 600;
+}
+.PlansPrice h4 {
+	font-size: 14px;
+	margin-bottom: 0px;
+	color: #828282;
+}
+thead tr th {
+    background-color: #f5dbdd99 !important;
+    padding: 15px !important;
+}
+tbody th {
+	font-weight: 400;
+	font-size: 15px !important;
+	color: #20272f !important;
+	padding: 12px !important;
+}
+
+.table_main__ .accordion-button {
+	text-align: center !important;
+	color: #000;
+	background-color: #f5dbdd;
+	font-weight: 600;
+}
+.accordion-button:focus {
+	box-shadow: none;
+}
+.accordion-button::after {
+	width: 20px;
+	height: 20px;
+}
+
+.InsuranceForm_start {
+	position: relative;
+	width: 75%;
+	margin: 0 auto;
+	padding: 30px;
+	margin-top: -40px;
+	z-index: 1;
+	background: #fff;
+	border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    margin-bottom: 70px;
+}
+.Form_startmain {
+	margin-top: 50px;
+}
+.titleofthe_Form {
+	margin-top: 20px;
+}
+
+.form-group label span{
+	color: #f94a4a;
+}
+.ternanoteandbutton{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.titleofthe_Form h2 {
+	color: #EE1D23;
+}
+.Form_startmain .form-group {
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.select2-container .select2-selection--single {
+	box-sizing: border-box;
+	cursor: pointer;
+	display: block;
+	height: 45px !important;
+	user-select: none;
+	-webkit-user-select: none;
+	width: 100%;
+}
+.select2-container {
+	width: 100% !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	color: #444;
+	line-height: 45px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+	height: 45px !important;
+	position: absolute;
+	top: 1px;
+	right: 7px;
+	width: 20px;
+}
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: #fb5858 !important;
+    color: white;
+  }
+  .select2-search__field:focus-visible {
+	outline: none !important;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+	display: block;
+	padding-left: 15px !important;
+}
+#select2-nationality-container:focus-visible {
+	outline: none !important;
+}
+.intl-tel-input {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+.intl-tel-input .country-list {
+	position: relative !important;
+	white-space: unset !important;
+	max-height: 200px;
+	overflow-y: scroll;
+	width: 100% !important;
+}
+.flatpickr-day.today {
+	border-color: red !important;
+}
+.flatpickr-day.today:hover, .flatpickr-day.today:focus {
+	border-color: red !important;
+	background: red !important;
+	color: #fff;
+}
+
+.profile_user {
+	width: 30px;
+	height: 30px;
+}
+
+.profile_user img{
+    width: 100%;
+}
+.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
+    outline: none !important;
+	border: none !important;
+}
+
+.profileDrop_menu button{
+    display: flex;
+    align-items: center;
+}
+.dropdown-menu.dropdown-menu-end li {
+	border-bottom: 1px solid #f4f4f4;
+}
+.dropdown-menu.dropdown-menu-end li:last-child{
+    border: none !important;
+}
+.dropdown-menu.dropdown-menu-end {
+	padding: 10px;
+}
+.dropdown-menu.dropdown-menu-end li a {
+	padding: 9px 10px;
+	font-weight: 500;
+	font-size: 14px;
+}
+.profileDrop_menu{
+    display: none;
+}
+
+.dropify-wrapper .dropify-message p {
+	margin: 5px 0 0;
+	font-size: 14px;
+}
+.border-right-dashed {
+    border-right: 2px dashed #ececec;
+}
+.detail_ans h6 {
+    font-weight: 400;
+    color: #686868;
+}
+.detail_box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.detail_box ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.sign_img_bx img {
+    width: 80px;
+}
+.price_highlight {
+    font-weight: 600 !important;
+    color: #ee1d23 !important;
+}
+
+/* profile page css 17 jan */
+.profile_tab{
+    border: none;
+}
+.profile_tab li {
+    width: 100%;
+}
+.custom-tab .nav-tabs .nav-link {
+    background: #ececec;
+    color: #000;
+    border: 1px solid #ececec;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+.custom-tab .nav-tabs .nav-item.show .nav-link, .custom-tab .nav-tabs .nav-link.active {
+    color: #fff !important;
+    background-color: #EE1D23;
+    border-color: var(--bs-nav-tabs-link-active-border-color);
+    border: 1px solid #EE1D23 !important;
+    border-radius: 5px;
+}
+.profile-cover {
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+    padding: 15px;
+}
+.profile-img-1 img {
+    border-radius: 77px;
+    width: 100px;
+    border: 1px solid #d8d5d5;
+    padding: 5px;
+}
+.profile-img-1 {
+    text-align: center;
+}
+.profile_name {
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+h5.pr_gmail {
+    font-size: 14px;
+    color: #a3a3a3;
+    font-weight: 400;
+}
+.custom-tab {
+    margin-top: 20px;
+}
+.theme_btn {
+    padding: 5px 15px;
+    background: #ee1d23;
+    color: #fff;
+}
+.theme_btn2{
+    background: #ececec;
+    color: #000;     
+}
+.tab_title {
+    margin-bottom: 30px;
+    font-size: 20px;
+    position: relative;
+}
+.tab_title::before {
+    position: absolute;
+    content: '';
+    background: #ee1d23;
+    width: 3px;
+    height: 20px;
+    top: 3px;
+    left: -17px;
+}
+.insurancebox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+}
+.insurance_img img {
+    width: 90px;
+    border-radius: 5px;
+}
+.inner_left {
+    display: flex;
+    align-items: center;
+}
+.insurance_dt h4 {
+    font-size: 18px;
+    margin-bottom: 0;
+}
+.insurance_dt p {
+    font-size: 14px;
+}
+.insurance_dt {
+    margin-left: 10px;
+}
+.date_ p {
+    font-size: 14px;
+    font-weight: 500;
+}
+.main-container {
+    padding: 50px 0;
+}
+.person_bx {
+    border: 1px dashed #c0c0c0ec;
+    padding: 37px 20px 0;
+    margin-bottom: 35px;
+    border-radius: 5px;
+    position: relative;
+  }
+  .travel_title {
+    margin-bottom: 40px;
+  }
+  
+  h6.person_title {
+    margin-bottom: 0;
+    position: absolute;
+    top: -21px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 3px;
+  }
+  .profile-tab .accordion-body .person_bx {
+    margin-bottom: 18px;
+   }
+   .profile-tab .accordion-item {
+margin-bottom: 10px;
+    border: none;
+    border-radius: 0 !important;
+}
+.profile-tab .accordion-button  {
+    padding: 10px 12px;
+
+}
+.custom-tab .nav-tabs .nav-link i {
+    margin-right: 8px;
+}
+.profile-tab .accordion-button.collapsed {
+    padding: 10px 12px;
+    background: #f5f5f5;
+}
+h6.destination {
+    width: 58%;
+    margin: 0 0 0 auto;
+}
+@media (max-width:767px){
+    .navbar-brand img {
+        width: 70%;
+    }
+    .navbar-toggler {
+        border: none;
+    }
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+    #navbar_Menu li a {
+        display: inline-block;
+    }
+    #navbar_Menu li {
+        padding: 0.5rem 15px;
+    }
+    .logincontainer {
+        margin-left: 30px;
+        position: absolute;
+        right: 18%;
+        text-decoration: none;
+        white-space: nowrap;
+        top: 25px;
+      }
+    .CustomHeader .container-fluid {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .header_topbar {
+        padding: 0px 20px;
+    }
+    .Righttophed_content ul li:nth-child(2) {
+        border-right: none;
+        padding-right: 0px;
+    }
+    .footer_right_widgets {
+        margin-top: 20px;
+    }
+    .footer_right_widgets h1 {
+        margin-bottom: 15px;
+    }
+    .leftlogofooter_section {
+        margin-bottom: 20px;
+        border-right: none;
+    }
+    .Footer_container {
+        padding: 30px 0px;
+    }
+    .CopyRights_footer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .ftCopyright_left {
+        margin-bottom: 10px;
+    }
+    .banner_content h1 {
+        color: #F2F2F2;
+        font-size: 32px;
+        font-weight: bold;
+        line-height: 40px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    .Home_banner {
+        height: 420px;
+    }
+    .banner_content p {
+        width: 95%;
+    }
+    .commonsection_content h1 {
+        font-size: 28px;
+    }
+    .imagesection_rightAB {
+        position: relative;
+        text-align: right;
+    }
+    .overlapimg1 {
+        max-width: 65%;
+    }
+    .overlapimg2 {
+        position: absolute;
+        left: 14px;
+        top: 70px;
+        max-width: 67%;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+    .imagesection_rightAB {
+        margin-top: 40px;
+    }
+    .home_about {
+        padding: 40px 0px 130px 0px;
+    }
+    .allInsurances .allabout_insurance {
+        padding-left: 30px;
+        margin-bottom: 30px;
+    }
+    .allInsurances {
+        padding: 40px 0px 0px 0px;
+    }
+    .getintouch_content h1 {
+        font-size: 28px;
+    }
+    .getintouch_content {
+        width: 100%;
+    }
+    .haveaquestion {
+        padding: 40px 0px 40px 0px;
+    }
+    .removebrmedia {
+        display: none;
+    }
+    .common_inner_banner {
+        position: relative;
+        height: 200px;
+    }
+    .innerbanner_breadcrums h1 {
+        font-weight: bold;
+        font-size: 28px;
+        color: #fff;
+    }
+    .breadcrumb {
+        display: flex;
+        justify-content: center;
+        font-size: 12px;
+    }
+    .breadcrumb-item + .breadcrumb-item::before {
+      
+        height: 6px;
+        line-height: 20px;
+        text-rendering: auto;
+        width: 17px;
+        -webkit-font-smoothing: antialiased;
+        color: #fff;
+    }
+    .AboutOurCompany {
+        padding: 30px 0px;
+    }
+    .abgt_cmp_rightimg {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .experience_content {
+        width: calc(100% - 100px);
+        height: calc(100% - 100px);
+        background: #0000007d;
+        border: 10px solid #fff;
+        margin: 50px;
+    }
+    .aboutCMPY_centertext h2 {
+        font-weight: 600;
+        font-size: 18px;
+    }
+    .experience_content h2 {
+        font-size: 28px;
+    }
+    .vision_content_box .aboutCompany.commonsection_content {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .vision_content_box {
+        padding-left: 30px;
+    }
+    .ordermis2{
+        order: 1;
+    }
+    .ordermis1{
+        order: 2;
+    }
+    .vision_description {
+        margin: 30px 0px;
+        padding-right: 25px;
+    }
+    .OurValues {
+        padding: 30px 0px 0px 0px;
+    }
+    .centersection_heading h1 {
+        font-size: 26px;
+    }
+    .centersection_heading {
+        margin-bottom: 55px;
+    }
+    .value_Card {
+        height: auto;
+        margin-bottom: 60px;
+    }
+    .logincontainer button {
+        padding: 6px 12px;
+        background: #EE1D23;
+        color: #fff;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    .Insurance_Detail_container {
+        padding: 30px 0px;
+    }
+    .insurancePAGE_title h2 {
+        font-size: 20px;
+    }
+    .insuramce_subCards {
+        margin-top: 20px;
+    }
+    .insuramce_subCards .card{
+        margin-bottom: 20px;
+    }
+    .Insurance_Benefits_section {
+        padding: 0px 0px 0px 0px;
+    }
+    .benefits_carddtr {
+        margin-top: 30px;
+    }
+    .benefitsRight_content {
+        margin-top: 30px;
+    }
+    .weCovered {
+        padding: 30px 0px;
+        background: #EAEAEA99;
+    }
+    .benefits_Image {
+        height: 400px;
+    }
+    .orderbeni1{
+        order: 2;
+        padding: 0px;
+    }
+    .orderbeni2{
+        order: 1;
+    }
+    #plandescription{
+        padding-bottom: 0px;
+    }
+    .crvc_Title {
+        width: 80%;
+    }
+    .contentlist_beneif {
+        width: 80%;
+    }
+    .covered_Item {
+        padding: 30px 30px;
+        height: auto;
+    }
+    .crvc_Title h2 {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .Covered_icoTitle {
+        display: flex;
+        align-items: center;
+    }
+    .covered_Item .coveredlhj_icon {
+        top: 0px;
+    }
+    .Contactaddress_area .covered_Item {
+        padding: 40px 20px;
+        background: #fff;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        height: auto;
+    }
+    .Contactaddress_area {
+        margin-top: -40px;
+        z-index: 1000;
+        position: relative;
+    }
+    .contact_Form {
+        padding: 20px 0px 30px 0px;
+      }
+      .contactMobilesec {
+        margin-top: 20px;
+        display: flex;
+        align-items: flex-start;
+        background: #F1F1F178;
+        padding: 20px;
+        border-radius: 12px;
+        flex-direction: column;
+    }
+    .mobilenumbers {
+        margin-left: 0px;
+    }
+    .mobilenumbers ul {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .mobilenumbers ul li {
+        margin-right: 12px;
+        border-right: 0px;
+        padding-right: 12px;
+        margin-bottom: 12px;
+    }
+    .mobilenumbers {
+        margin-left: 0px;
+        margin-top: 15px;
+    }
+    .Contact_FromContainer h2 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 60px;
+    }
+    .Contact_FromContainer {
+        padding: 14px;
+        border: 1px solid #eaeaea;
+        border-radius: 5px;
+        background: #fff;
+        margin-top: 20px;
+    }
+    .Contact_FromContainer h2 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 8px 20px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: 0.3s ease all;
+        outline: none;
+    }
+    .Frm_Submit_button {
+        margin-top: 0px;
+        text-align: right;
+        margin-bottom: 20px;
+    }
+    .Frm_Submit_button button {
+        padding: 8px 30px;
+        background: #EE1D23;
+        color: #fff;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .header_topbar ul li a {
+        display: flex;
+        align-items: center;
+        color: #000;
+        text-decoration: none;
+        font-size: 13px;
+    }
+    .Righttophed_content ul li {
+        padding: 7px;
+    }
+    .Righttophed_content ul li a iconify-icon {
+        font-size: 18px;
+        color: #EE1D23;
+    }
+    .navRight_login {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+}
