@@ -1105,6 +1105,7 @@ tbody th {
 
 .form-group label span{
 	color: #f94a4a;
+    display:none;
 }
 .ternanoteandbutton{
     display: flex;

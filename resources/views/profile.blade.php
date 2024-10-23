@@ -134,933 +134,182 @@
                                                     <div class="settings-form">
                                                        <h4 class="tab_title">All Insurances</h4>
                                                          <div class="accordion" id="accordionExample">
+                                                         @foreach($plans as  $index =>$plan)
                                                             <div class="accordion-item">
-                                                               <h2 class="accordion-header">
-                                                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                     <div class="insurancebox">
-                                                                        <div class="inner_left">
-                                                                        <div class="insurance_img">
-                                                                           <img src="assets/images/insup1.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="insurance_dt">
-                                                                           <h4>Silver Plan</h4>
-                                                                           <p>United States of America, Canada, Japan, Australia</p>
-                                                                        </div>
-                                                                        </div>
-                                                                        <div class="inner_right">
-                                                                           <div class="date_">
-                                                                              <p>January 26, 2023</p>
+                                                                  <h2 class="accordion-header">
+                                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{$index}}" aria-expanded="true" aria-controls="collapseOne">
+                                                                        <div class="insurancebox">
+                                                                           <div class="inner_left">
+                                                                           <div class="insurance_img">
+                                                                              <img src="assets/images/insup1.jpg" alt="">
                                                                            </div>
+                                                                           <div class="insurance_dt">
+                                                                              <h4>{{$plan->name}}</h4>
+                                                                              <p>{{ \Illuminate\Support\Str::limit($plan->description, 65, '...') }}</p>
+
+                                                                           </div>
+                                                                           </div>
+                                                                           <div class="inner_right">
+                                                                              <div class="date_">
+                                                                                 <p>{{ \Carbon\Carbon::parse($plan->created_at)->format('F d, Y') }}</p>
+                                                                              </div>
+                                                                           </div>                        
                                                                         </div>
-                     
-                                                                     </div>
-                                                                  </button>
-                                                               </h2>
-                                                               <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                                                  <div class="accordion-body">
-                                                                  <div class="Form_startmain mt-3">
+                                                                     </button>
+                                                                  </h2>
+                                                                  <div id="collapseOne{{$index}}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                                                     <div class="accordion-body">
+                                                                     <div class="Form_startmain mt-3">
+                                                                     @foreach($plan->insurancePurchases as $index => $user)
                                                                         <div class="row">
-                                                                              <div class="col-lg-12 px-0">
-                                                                              <div class="person_bx">
-                                                                                    <h6 class="person_title">Person 1</h6>
+                                                                           <div class="col-lg-12 px-0">
+                                                                                 <div class="person_bx">
+                                                                                    <h6 class="person_title">Person {{ $index + 1 }}</h6>
                                                                                     <div class="row">
-                                                                                    <div class="col-lg-6">
-                                                                                 <div class="detail_box pe-4">
-                                                                                    <ul>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Full Name* (as per passport)</h6>
+                                                                                       <div class="col-lg-6">
+                                                                                             <div class="detail_box pe-4">
+                                                                                                <ul>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Full Name* (as per passport)</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6>{{ $user->full_name ?? 'NA' }}</h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Date of Birth</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6>{{ $user->date_of_birth ? \Carbon\Carbon::parse($user->date_of_birth)->format('F d, Y') : 'NA' }}</h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Marital Status</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6>{{ $user->marital_status ?? 'NA' }}</h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Number</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6>{{ $user->number ?? 'NA' }}</h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Policy Start Date</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6>{{ $user->policy_start_date ? \Carbon\Carbon::parse($user->policy_start_date)->format('F d, Y') : 'NA' }}</h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Nationality</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6>{{ $user->nationality ?? 'NA' }}</h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Price</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6 class="price_highlight">
+                                                                                                               $ {{ $user->price ? number_format($user->price, 2) : 'NA' }}
+                                                                                                            </h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                </ul>
                                                                                              </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Andrea Monroy</h6>
+                                                                                       </div>
+                                                                                       <div class="col-lg-6">
+                                                                                             <div class="detail_box ps-4">
+                                                                                                <ul>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Gender</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6>{{ $user->gender ?? 'NA' }}</h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Destination</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6 class="destination">{{ $user->destination ?? 'NA' }}</h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Passport ID number</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6>{{ $user->passport_id ?? 'NA' }}</h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Date of Guarantee</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6>{{ $user->date_of_guarantee ? \Carbon\Carbon::parse($user->date_of_guarantee)->format('F d, Y') : 'NA' }}</h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Expire of Guarantee</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6>{{ $user->expire_of_guarantee ? \Carbon\Carbon::parse($user->expire_of_guarantee)->format('F d, Y') : 'NA' }}</h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>No. of days</h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans">
+                                                                                                            <h6>{{ $user->no_of_days ?? 'NA' }}</h6>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                   <li>
+                                                                                                         <div class="detail_title">
+                                                                                                            <h6>Uploaded Passport </h6>
+                                                                                                         </div>
+                                                                                                         <div class="detail_ans sign_img_bx">
+                                                                                                            <div class="detail_ans sign_img_bx">
+                                                                                                               <a href="{{ $user->uploaded_passport ? asset('storage/' . $user->uploaded_passport) : '#' }}" data-lightbox="gallery" data-title="Uploaded Passport">
+                                                                                                                     <img src="{{ $user->uploaded_passport ? asset('storage/' . $user->uploaded_passport) : asset('path/to/default/image.jpg') }}" alt="Uploaded Passport">
+                                                                                                               </a>
+                                                                                                            </div>
+                                                                                                         </div>
+                                                                                                   </li>
+                                                                                                </ul>
                                                                                              </div>
-                                                                                          </li>
-                                                                                    
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Date of Birth</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>May 5, 1994</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Marital Status</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Single </h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                    
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Number</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>+839 39339 3939</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Policy Start Date</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>January 26, 2023</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Nationality</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Venezuelan</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Price</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6 class="price_highlight">$4</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                    </ul>
-                                                                                 </div>
-                                                                        
-                                                                              </div>
-                                                                              <div class="col-lg-6">
-                                                                                 <div class="detail_box ps-4">
-                                                                                    <ul>
-                                                                                    <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Gender</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Female</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Destination</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6 class="destination">United States of America, Canada, Japan, Australia</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Passport ID number</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>AJSOD02020JDI</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Date of Guarantee</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>February 23, 2023</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Expire of Guarantee</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>March 23, 2023</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>No. of days</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Less than 30 days</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                          <div class="detail_title">
-                                                                                             <h6>Uploaded Passport </h6>
-                                                                                          </div>
-                                                                                          <div class="detail_ans sign_img_bx">
-                                                                                          <!-- <img src="assets/images/passport.jpg" alt=""> -->
-                                                                                          <a href="assets/images/passport.jpg" data-lightbox="gallery" data-title="Image 2">
-                                                                                             <img src="assets/images/passport.jpg" alt="Image 2">
-                                                                                          </a>
-                                                                                          </div>
-                                                                                          </li>
-                                                                                    </ul>
-                                                                                    
-                                                                                 </div>
-                                                                        
-                                                                              </div>
+                                                                                       </div>
                                                                                     </div>
                                                                                  </div>
-                                                                              </div>
-                                                                        
-                                                                              <div class="col-lg-12 px-0 mt-3">
-                                                                                 <div class="row">
-                                                                                 <div class="col-lg-6">
-                                                                              <div class="person_bx">
-                                                                                    <h6 class="person_title">Person 1</h6>
-                                                                                 
-                                                                                    <div class="detail_box ">
-                                                                                    <ul>
-                                                                                    <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Name</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Jhon Monroy</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Date of Birth</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>March 23, 1995</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Gender</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Male</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Price</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6 class="price_highlight">$6</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Passport ID number</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>AJSOD02020JDI</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                       
-                                                                                          <li>
-                                                                                          <div class="detail_title">
-                                                                                             <h6>Uploaded Passport </h6>
-                                                                                          </div>
-                                                                                          <div class="detail_ans sign_img_bx">
-                                                                                          <!-- <img src="assets/images/passport.jpg" alt=""> -->
-                                                                                          <a href="assets/images/passport.jpg" data-lightbox="gallery" data-title="Image 2">
-                                                                                             <img src="assets/images/passport.jpg" alt="Image 2">
-                                                                                          </a>
-                                                                                          </div>
-                                                                                          </li>
-                                                                                    </ul>
-                                                                              
+                                                                           </div>
+                                                                        </div>
+                                                                     @endforeach
+                                                                                 <div class="col-lg-12 text-end mb-3">
+                                                                                    <h4>Total Price : ${{ number_format($totalPrice, 2) }}</h4>
                                                                                  </div>
-                                                                     
-                                                                                 </div>
-                                                                              </div>
-
-                                                                              <div class="col-lg-6">
-                                                                              <div class="person_bx">
-                                                                                    <h6 class="person_title">Person 2</h6>
-                                                                                 
-                                                                                    <div class="detail_box ">
-                                                                                    <ul>
-                                                                                    <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Name</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Jhon Monroy</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Date of Birth</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>March 23, 1995</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Gender</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Male</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Price</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6 class="price_highlight">$7</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Passport ID number</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>AJSOD02020JDI</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                          <div class="detail_title">
-                                                                                             <h6>Uploaded Passport </h6>
-                                                                                          </div>
-                                                                                          <div class="detail_ans sign_img_bx">
-                                                                                          <!-- <img src="assets/images/passport.jpg" alt=""> -->
-                                                                                          <a href="assets/images/passport.jpg" data-lightbox="gallery" data-title="Image 2">
-                                                                                             <img src="assets/images/passport.jpg" alt="Image 2">
-                                                                                          </a>
-                                                                                          </div>
-                                                                                          </li>
-                                                                                          
-                                                                                    </ul>
-                                                                              
-                                                                                 </div>
-                                                                     
-                                                                                 </div>
-                                                                              </div>
-
-                                                                                 </div>
-                                                                              </div>
-                                                                              <div class="col-lg-12 text-end mb-3">
-                                                                                 <h4>Total Price : $17</h4>
-                                                                              </div>
                                                                         </div>
                                                                      </div>
                                                                   </div>
                                                                </div>
                                                             </div>
-                                                            <div class="accordion-item">
-                                                               <h2 class="accordion-header">
-                                                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                                  <div class="insurancebox">
-                                                                        <div class="inner_left">
-                                                                        <div class="insurance_img">
-                                                                           <img src="assets/images/insup1.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="insurance_dt">
-                                                                           <h4>Silver Plan</h4>
-                                                                           <p>United States of America, Canada, Japan, Australia</p>
-                                                                        </div>
-                                                                        </div>
-                                                                        <div class="inner_right">
-                                                                           <div class="date_">
-                                                                              <p>January 26, 2023</p>
-                                                                           </div>
-                                                                        </div>
-                     
-                                                                     </div>
-                                                                  </button>
-                                                               </h2>
-                                                               <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                                               <div class="accordion-body">
-                                                                  <div class="Form_startmain mt-3">
-                                                                        <div class="row">
-                                                                              <div class="col-lg-12 px-0">
-                                                                              <div class="person_bx">
-                                                                                    <h6 class="person_title">Person 1</h6>
-                                                                                    <div class="row">
-                                                                                    <div class="col-lg-6">
-                                                                                 <div class="detail_box pe-4">
-                                                                                    <ul>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Full Name* (as per passport)</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Andrea Monroy</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                    
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Date of Birth</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>May 5, 1994</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Marital Status</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Single </h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                    
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Number</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>+839 39339 3939</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Policy Start Date</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>January 26, 2023</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Nationality</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Venezuelan</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Price</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6 class="price_highlight">$4</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                    </ul>
-                                                                                 </div>
-                                                                        
-                                                                              </div>
-                                                                              <div class="col-lg-6">
-                                                                                 <div class="detail_box ps-4">
-                                                                                    <ul>
-                                                                                    <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Gender</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Female</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Destination</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6 class="destination">United States of America, Canada, Japan, Australia</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Passport ID number</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>AJSOD02020JDI</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Date of Guarantee</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>February 23, 2023</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Expire of Guarantee</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>March 23, 2023</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>No. of days</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Less than 30 days</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                          <div class="detail_title">
-                                                                                             <h6>Uploaded Passport </h6>
-                                                                                          </div>
-                                                                                          <div class="detail_ans sign_img_bx">
-                                                                                          <!-- <img src="assets/images/passport.jpg" alt=""> -->
-                                                                                          <a href="assets/images/passport.jpg" data-lightbox="gallery" data-title="Image 2">
-                                                                                             <img src="assets/images/passport.jpg" alt="Image 2">
-                                                                                          </a>
-                                                                                          </div>
-                                                                                          </li>
-                                                                                    </ul>
-                                                                                    
-                                                                                 </div>
-                                                                        
-                                                                              </div>
-                                                                                    </div>
-                                                                                 </div>
-                                                                              </div>
-                                                                        
-                                                                              <div class="col-lg-12 px-0 mt-3">
-                                                                                 <div class="row">
-                                                                                 <div class="col-lg-6">
-                                                                              <div class="person_bx">
-                                                                                    <h6 class="person_title">Person 1</h6>
-                                                                                 
-                                                                                    <div class="detail_box ">
-                                                                                    <ul>
-                                                                                    <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Name</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Jhon Monroy</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Date of Birth</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>March 23, 1995</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Gender</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Male</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Price</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6 class="price_highlight">$6</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Passport ID number</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>AJSOD02020JDI</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                       
-                                                                                          <li>
-                                                                                          <div class="detail_title">
-                                                                                             <h6>Uploaded Passport </h6>
-                                                                                          </div>
-                                                                                          <div class="detail_ans sign_img_bx">
-                                                                                          <!-- <img src="assets/images/passport.jpg" alt=""> -->
-                                                                                          <a href="assets/images/passport.jpg" data-lightbox="gallery" data-title="Image 2">
-                                                                                             <img src="assets/images/passport.jpg" alt="Image 2">
-                                                                                          </a>
-                                                                                          </div>
-                                                                                          </li>
-                                                                                    </ul>
-                                                                              
-                                                                                 </div>
-                                                                     
-                                                                                 </div>
-                                                                              </div>
-
-                                                                              <div class="col-lg-6">
-                                                                              <div class="person_bx">
-                                                                                    <h6 class="person_title">Person 2</h6>
-                                                                                 
-                                                                                    <div class="detail_box ">
-                                                                                    <ul>
-                                                                                    <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Name</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Jhon Monroy</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Date of Birth</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>March 23, 1995</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Gender</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Male</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Price</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6 class="price_highlight">$7</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Passport ID number</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>AJSOD02020JDI</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                          <div class="detail_title">
-                                                                                             <h6>Uploaded Passport </h6>
-                                                                                          </div>
-                                                                                          <div class="detail_ans sign_img_bx">
-                                                                                          <!-- <img src="assets/images/passport.jpg" alt=""> -->
-                                                                                          <a href="assets/images/passport.jpg" data-lightbox="gallery" data-title="Image 2">
-                                                                                             <img src="assets/images/passport.jpg" alt="Image 2">
-                                                                                          </a>
-                                                                                          </div>
-                                                                                          </li>
-                                                                                          
-                                                                                    </ul>
-                                                                              
-                                                                                 </div>
-                                                                     
-                                                                                 </div>
-                                                                              </div>
-
-                                                                                 </div>
-                                                                              </div>
-                                                                              <div class="col-lg-12 text-end mb-3">
-                                                                                 <h4>Total Price : $17</h4>
-                                                                              </div>
-                                                                        </div>
-                                                                     </div>
-                                                                  </div>
-                                                               </div>
-                                                            </div>
-                                                            <div class="accordion-item">
-                                                               <h2 class="accordion-header">
-                                                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                                  <div class="insurancebox">
-                                                                        <div class="inner_left">
-                                                                        <div class="insurance_img">
-                                                                           <img src="assets/images/insup1.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="insurance_dt">
-                                                                           <h4>Silver Plan</h4>
-                                                                           <p class="destination">United States of America, Canada, Japan, Australia</p>
-                                                                        </div>
-                                                                        </div>
-                                                                        <div class="inner_right">
-                                                                           <div class="date_">
-                                                                              <p>January 26, 2023</p>
-                                                                           </div>
-                                                                        </div>
-                     
-                                                                     </div>
-                                                                  </button>
-                                                               </h2>
-                                                               <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                                                  <div class="accordion-body">
-                                                                  <div class="accordion-body">
-                                                                  <div class="Form_startmain mt-3">
-                                                                        <div class="row">
-                                                                              <div class="col-lg-12 px-0">
-                                                                              <div class="person_bx">
-                                                                                    <h6 class="person_title">Person 1</h6>
-                                                                                    <div class="row">
-                                                                                    <div class="col-lg-6">
-                                                                                 <div class="detail_box pe-4">
-                                                                                    <ul>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Full Name* (as per passport)</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Andrea Monroy</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                    
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Date of Birth</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>May 5, 1994</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Marital Status</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Single </h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                    
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Number</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>+839 39339 3939</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Policy Start Date</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>January 26, 2023</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Nationality</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Venezuelan</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Price</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6 class="price_highlight">$4</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                    </ul>
-                                                                                 </div>
-                                                                        
-                                                                              </div>
-                                                                              <div class="col-lg-6">
-                                                                                 <div class="detail_box ps-4">
-                                                                                    <ul>
-                                                                                    <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Gender</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Female</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Destination</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>United States of America, Canada, Japan, Australia</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Passport ID number</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>AJSOD02020JDI</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Date of Guarantee</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>February 23, 2023</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Expire of Guarantee</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>March 23, 2023</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>No. of days</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Less than 30 days</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                          <div class="detail_title">
-                                                                                             <h6>Uploaded Passport </h6>
-                                                                                          </div>
-                                                                                          <div class="detail_ans sign_img_bx">
-                                                                                          <!-- <img src="assets/images/passport.jpg" alt=""> -->
-                                                                                          <a href="assets/images/passport.jpg" data-lightbox="gallery" data-title="Image 2">
-                                                                                             <img src="assets/images/passport.jpg" alt="Image 2">
-                                                                                          </a>
-                                                                                          </div>
-                                                                                          </li>
-                                                                                    </ul>
-                                                                                    
-                                                                                 </div>
-                                                                        
-                                                                              </div>
-                                                                                    </div>
-                                                                                 </div>
-                                                                              </div>
-                                                                        
-                                                                              <div class="col-lg-12 px-0 mt-3">
-                                                                                 <div class="row">
-                                                                                 <div class="col-lg-6">
-                                                                              <div class="person_bx">
-                                                                                    <h6 class="person_title">Person 1</h6>
-                                                                                 
-                                                                                    <div class="detail_box ">
-                                                                                    <ul>
-                                                                                    <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Name</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Jhon Monroy</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Date of Birth</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>March 23, 1995</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Gender</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Male</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Price</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6 class="price_highlight">$6</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Passport ID number</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>AJSOD02020JDI</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                       
-                                                                                          <li>
-                                                                                          <div class="detail_title">
-                                                                                             <h6>Uploaded Passport </h6>
-                                                                                          </div>
-                                                                                          <div class="detail_ans sign_img_bx">
-                                                                                          <!-- <img src="assets/images/passport.jpg" alt=""> -->
-                                                                                          <a href="assets/images/passport.jpg" data-lightbox="gallery" data-title="Image 2">
-                                                                                             <img src="assets/images/passport.jpg" alt="Image 2">
-                                                                                          </a>
-                                                                                          </div>
-                                                                                          </li>
-                                                                                    </ul>
-                                                                              
-                                                                                 </div>
-                                                                     
-                                                                                 </div>
-                                                                              </div>
-
-                                                                              <div class="col-lg-6">
-                                                                              <div class="person_bx">
-                                                                                    <h6 class="person_title">Person 2</h6>
-                                                                                 
-                                                                                    <div class="detail_box ">
-                                                                                    <ul>
-                                                                                    <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Name</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Jhon Monroy</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Date of Birth</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>March 23, 1995</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Gender</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>Male</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Price</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6 class="price_highlight">$7</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                             <div class="detail_title">
-                                                                                                <h6>Passport ID number</h6>
-                                                                                             </div>
-                                                                                             <div class="detail_ans">
-                                                                                                <h6>AJSOD02020JDI</h6>
-                                                                                             </div>
-                                                                                          </li>
-                                                                                          <li>
-                                                                                          <div class="detail_title">
-                                                                                             <h6>Uploaded Passport </h6>
-                                                                                          </div>
-                                                                                          <div class="detail_ans sign_img_bx">
-                                                                                          <!-- <img src="assets/images/passport.jpg" alt=""> -->
-                                                                                          <a href="assets/images/passport.jpg" data-lightbox="gallery" data-title="Image 2">
-                                                                                             <img src="assets/images/passport.jpg" alt="Image 2">
-                                                                                          </a>
-                                                                                          </div>
-                                                                                          </li>
-                                                                                          
-                                                                                    </ul>
-                                                                              
-                                                                                 </div>
-                                                                     
-                                                                                 </div>
-                                                                              </div>
-
-                                                                                 </div>
-                                                                              </div>
-                                                                              <div class="col-lg-12 text-end mb-3">
-                                                                                 <h4>Total Price : $17</h4>
-                                                                              </div>
-                                                                        </div>
-                                                                     </div>
-                                                                  </div>
-                                                                  </div>
-                                                               </div>
-                                                            </div>
-                                                            </div>
+                                                         @endforeach
                                                     </div>
                                                 </div>
                                             </div>

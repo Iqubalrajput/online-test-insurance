@@ -15,6 +15,26 @@ class InsuranceController extends Controller
         $plans = Insurance::all(); 
         return view('insurances', compact('plans'));
     }
+    
+    public function show_insurance(Request $request)
+    {
+        $id = $request->query('id'); // Query string से ID प्राप्त करें
+    
+        // Fetch plan by ID
+        $plans = Insurance::find($id);
+    
+        // Check if plan is found, if not handle the error
+        if (!$plans) {
+            return redirect()->back()->with('error', 'Plan not found!');
+        }
+    
+        session(['selected_plan' => $plans]);
+        // Pass plan data to view
+        return view('insurances_details', compact('plans'));
+    }
+    
+    
+
 
     /**
      * Show the form for creating a new resource.

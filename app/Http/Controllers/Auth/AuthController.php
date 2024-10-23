@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User; 
+use App\Models\Insurance; 
 
 class AuthController extends Controller
 {
@@ -15,7 +16,20 @@ class AuthController extends Controller
     {
         try {
             $user = Auth::user(); 
-            return view('profile', compact('user'));
+
+           
+            $planIds = \DB::table('insurance_purchases')
+                ->where('user_id', $user->id) 
+                ->pluck('insurance_plan_id')->unique();
+
+            $totalPrice = \DB::table('insurance_purchases')
+            ->where('user_id', $user->id) 
+                ->sum('price');
+           $plans = Insurance::whereIn('id', $planIds)
+                ->with('insurancePurchases') 
+                ->get();
+               
+            return view('profile', compact('user','plans','totalPrice'));
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Unable to fetch user details.');
         }

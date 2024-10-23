@@ -15,7 +15,7 @@
         </nav>
     </div>
 </section>
-
+<!-- 
 <section class="Insurance_Detail_container">
     <div class="container">
         <div class="row">
@@ -144,7 +144,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="Insurance_Detail_container">
     <div class="container">
@@ -177,7 +177,7 @@
                                 </ul>
                             </div>
                             <div class="ins_cardBTN">
-                                <a href="{{ url('/insurances-details') }}">
+                                <a href="{{ url('/insurances-details?id='.$plan->id) }}">
                                     <button type="button" class="commonButtn_arrow btnlarge btncomn_grey">Read More <iconify-icon icon="gravity-ui:arrow-right"></iconify-icon></button>
                                 </a>
                             </div>

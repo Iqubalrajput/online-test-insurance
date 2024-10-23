@@ -48,7 +48,11 @@
                             </div>
                             <div class="col-12 col-lg-12 m-auto ">
                                 <form class="multisteps-form__form clearfix" action="#" method="post" id="wizard">
-                            
+                                @csrf    
+                                @php
+                                         $selectedPlan = session('selected_plan');
+                                    @endphp
+                                    <input type="hidden" name="plan_id" value="{{ $selectedPlan->id }}">
                                     <!--single form panel-->
                                     <div class="multisteps-form__panel js-active" data-animation="slideVert">
                                     <div class="row">
@@ -61,18 +65,18 @@
                                        <div class="col-lg-4 mx-auto mb-4">
                                       
                                                         <div class="form-group ">
-                                                            <select id="" name="" class="select2">
-                                                                <option value="single">1</option>
-                                                                <option value="married">2</option>
-                                                                <option value="divorced">3</option>
-                                                                <option value="widowed">3</option>
-                                                                <option value="other">4</option>
-                                                                <option value="other">5</option>
-                                                                <option value="other">6</option>
-                                                                <option value="other">7</option>
-                                                                <option value="other">8</option>
-                                                                <option value="other">9</option>
-                                                                <option value="other">10</option>
+                                                            <select id="numberOfPersons" name="" class="select2">
+                                                              
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
                                                             </select>
                                                             <label for="subject">Select Person </label>
                                                         </div>
@@ -85,7 +89,7 @@
                                         <div class="wizard-footer">
                                             <div class="actions">
                                                     <ul>
-                                                        <li><span class="js-btn-next first_next_btn" title="NEXT">NEXT <i class="fa fa-arrow-right"></i></span></li>
+                                                        <li><span class="js-btn-next first_next_btn" title="NEXT" id="next_btn">NEXT   <i class="fa fa-arrow-right"></i></span></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -93,25 +97,27 @@
                                 
                                     <!--single form panel-->
                                     <div class="multisteps-form__panel" data-animation="slideVert">
-                                    <div class="Form_startmain">
-                                    <div class="person_bx">
-                                        <h6 class="person_title">Person 1</h6>
+                                    
+                                        <div class="Form_startmain">
+                                            <div class="person_bx">
+                                                <h6 class="person_title">Person 1</h6>
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <input type="text" required>
+                                                        
+                                                            <input type="text" name="persons[1][first_name]"id="first_name_1" value="{{ $user->name }}" required readonly>
                                                             <label for="name">First Name  <span>*</span></label>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <input type="text" required>
+                                                            <input type="text"  name="persons[1][last_name]" id="last_name_1"required value="{{ $user->last_name }}" required readonly>
                                                             <label for="name">Last Name  <span>*</span></label>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <input type="text" id="insuranceDate" class="insuranceDate" name="insuranceDate"
+                                                            <input type="text" id="insuranceDate" class="dobDate"  name="persons[1][dob]"
                                                                 placeholder="dd/mm/yy">
 
                                                             <label for="email">Date of Birth <span>*</span></label>
@@ -119,14 +125,14 @@
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <input type="text" required>
+                                                            <input type="text"  name="persons[1][email]" id="email_2" required value="{{ $user->email }}" required readonly>
                                                             <label for="subject">Email</label>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-lg-4">
                                                         <div class="form-group ">
-                                                            <input type="tel" value="+16" class="TelPhoneinput">
+                                                            <input type="tel" value="+91"  name="persons[1][phone]" id="phone_1"class="TelPhoneinput">
                                                             <label for="subject">Number <span>*</span></label>
                                                         </div>
                                                     </div>
@@ -134,7 +140,7 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group ">
                                                             <label for="insuranceDate">Insurance Start Date:</label>
-                                                            <input type="text" id="insuranceDate" class="insuranceDate" name="insuranceDate"
+                                                            <input type="text"  class="insuranceDate"  name="persons[1][insurance_start]" id="insurance_start_1"
                                                                 placeholder="Select a date">
 
                                                         </div>
@@ -142,7 +148,7 @@
 
                                                     <div class="col-lg-4">
                                                         <div class="form-group ">
-                                                            <select id="nationality" name="nationality" class="select2">
+                                                            <select id="nationality" name="persons[1][nationality]" id="nationality_1" class="select2">
                                                                 <option value="" selected disabled>Select Nationality</option>
                                                             </select>
                                                             <label for="subject">Nationality <span>*</span></label>
@@ -150,7 +156,7 @@
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group ">
-                                                            <select id="" name="" class="select2">
+                                                            <select id="" name="persons[1][marital_status]" id="marital_status_1" class="select2">
                                                                 <option value="single">Single</option>
                                                                 <option value="married">Married</option>
                                                                 <option value="divorced">Divorced</option>
@@ -163,7 +169,7 @@
 
                                                     <div class="col-lg-4">
                                                         <div class="form-group ">
-                                                            <select id="" name="" class="select2">
+                                                            <select id="" name="persons[1][gender]" id="gender_1"class="select2">
                                                                 <option value="male">Male</option>
                                                                 <option value="female">Female</option>
                                                                 <option value="non-binary">Non-Binary</option>
@@ -176,191 +182,202 @@
 
                                                     <div class="col-lg-4">
                                                         <div class="form-group ">
-                                                        <select id="numberOfDays" name="numberOfDays"></select>
+                                                        <select id="numberOfDays" class="select2" name="persons[1][days]">
+                                                        
+                                                        </select>
+                                                               
                                                             <label for="subject">No. of Days <span>*</span></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label for="insuranceEndDate">Insurance End Date:</label>
+                                                            <input type="text" id="insuranceEndDate" class="insuranceEndDate" name="persons[1][insurance_end]"
+                                                                placeholder="End Date" readonly>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-lg-4">
                                                         <div class="form-group ">
-                                                            <input type="text" required>
+                                                            <input type="text" name="persons[1][destination]" id="destination_1" required>
                                                             <label for="subject">Destination <span>*</span></label>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group ">
-                                                            <input type="text" required>
+                                                            <input type="text" name="persons[1][price]" id="price_1" required>
                                                             <label for="subject">Price </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group ">
-                                                            <input type="text" required>
+                                                            <input type="text" name="persons[1][passport_id]" id="passport_id_1"required>
                                                             <label for="subject">Passport/ID Number <span>*</span></label>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-lg-12">
                                                         <div class="form-group ">
-                                                            <input name="file1" type="file" class="dropify" data-height="100" />
+                                                            <input name="persons[1][passport_file]" id="passport_file_1"type="file" class="dropify" data-height="100" />
 
                                                             <label for="subject">Upload Passport <span>*</span></label>
                                                         </div>
-                                                    </div>
-
                                                     </div>
                                                 </div>
                                             </div>
-                                    <div class="Form_startmain">
-                                        <div class="person_bx">
-                                        <h6 class="person_title">Person 2</h6>
-                                        <div class="row">
-                                            <!-- <div class="col-lg-12 text-center">
-                                              <h3 class="travel_title">How many people are travelling</h3>
-                                            </div> -->
-                                            <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <input type="text" required>
-                                                            <label for="name">First Name  <span>*</span></label>
+                                        </div> 
+                                        <div class="Form_startmain" id="personsContainer"></div>
+                                            <!-- 111 -->
+                                        <div class="Form_startmain">
+                                            <!-- <div class="person_bx">
+                                            <h6 class="person_title">Person 2</h6>
+                                            <div class="row"> -->
+                                                <!-- <div class="col-lg-12 text-center">
+                                                <h3 class="travel_title">How many people are travelling</h3>
+                                                </div> -->
+                                                <!-- <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <input type="text" required>
+                                                                <label for="name">First Name  <span>*</span></label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <input type="text" required>
-                                                            <label for="name">Last Name  <span>*</span></label>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <input type="text" required>
+                                                                <label for="name">Last Name  <span>*</span></label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <input type="text" id="insuranceDate" class="insuranceDate" name="insuranceDate"
-                                                                placeholder="dd/mm/yy">
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <input type="text" id="insuranceDate" class="insuranceDate" name="insuranceDate"
+                                                                    placeholder="dd/mm/yy">
 
-                                                            <label for="email">Date of Birth <span>*</span></label>
+                                                                <label for="email">Date of Birth <span>*</span></label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group ">
-                                                            <input type="text" required>
-                                                            <label for="subject">Price </label>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group ">
+                                                                <input type="text" required>
+                                                                <label for="subject">Price </label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group ">
-                                                            <select id="" name="" class="select2">
-                                                                <option value="male">Male</option>
-                                                                <option value="female">Female</option>
-                                                                <option value="non-binary">Non-Binary</option>
-                                                                <option value="prefer-not-to-say">Prefer not to say</option>
-                                                                <option value="other">Other</option>
-                                                            </select>
-                                                            <label for="subject">Gender <span>*</span></label>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group ">
+                                                                <select id="" name="" class="select2">
+                                                                    <option value="male">Male</option>
+                                                                    <option value="female">Female</option>
+                                                                    <option value="non-binary">Non-Binary</option>
+                                                                    <option value="prefer-not-to-say">Prefer not to say</option>
+                                                                    <option value="other">Other</option>
+                                                                </select>
+                                                                <label for="subject">Gender <span>*</span></label>
+                                                            </div>
                                                         </div>
-                                                    </div>
+
+                                                        
 
                                                     
 
-                                                  
-
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group ">
-                                                            <input type="text" required>
-                                                            <label for="subject">Passport/ID Number <span>*</span></label>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-group ">
+                                                                <input type="text" required>
+                                                                <label for="subject">Passport/ID Number <span>*</span></label>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="col-lg-12">
-                                                        <div class="form-group ">
-                                                            <input name="file1" type="file" class="dropify" data-height="100" />
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group ">
+                                                                <input name="file1" type="file" class="dropify" data-height="100" />
 
-                                                            <label for="subject">Upload Passport <span>*</span></label>
+                                                                <label for="subject">Upload Passport <span>*</span></label>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                    
-                                             </div>
-                                        </div>
-
-                                        <div class="person_bx">
-                                            <h6 class="person_title">Person 3</h6>
-                                        <div class="row">
-                                            <!-- <div class="col-lg-12 text-center">
-                                              <h3 class="travel_title">How many people are travelling</h3>
-                                            </div> -->
-                                            <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <input type="text" required>
-                                                            <label for="name">First Name  <span>*</span></label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <input type="text" required>
-                                                            <label for="name">Last Name  <span>*</span></label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <input type="text" id="insuranceDate" class="insuranceDate" name="insuranceDate"
-                                                                placeholder="dd/mm/yy">
-
-                                                            <label for="email">Date of Birth <span>*</span></label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group ">
-                                                            <input type="text" required>
-                                                            <label for="subject">Price </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group ">
-                                                            <select id="" name="" class="select2">
-                                                                <option value="male">Male</option>
-                                                                <option value="female">Female</option>
-                                                                <option value="non-binary">Non-Binary</option>
-                                                                <option value="prefer-not-to-say">Prefer not to say</option>
-                                                                <option value="other">Other</option>
-                                                            </select>
-                                                            <label for="subject">Gender <span>*</span></label>
-                                                        </div>
-                                                    </div>
-
-                                                    
-
-                                                  
-
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group ">
-                                                            <input type="text" required>
-                                                            <label for="subject">Passport/ID Number <span>*</span></label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-12">
-                                                        <div class="form-group ">
-                                                            <input name="file1" type="file" class="dropify" data-height="100" />
-
-                                                            <label for="subject">Upload Passport <span>*</span></label>
-                                                        </div>
-                                                    </div>
-
-                                    
-                                             </div>
-                                        </div>
                                         
+                                                </div>
+                                            </div> -->
+
+                                            <!-- <div class="person_bx">
+                                                <h6 class="person_title">Person 3</h6>
+                                            <div class="row"> -->
+                                                <!-- <div class="col-lg-12 text-center">
+                                                <h3 class="travel_title">How many people are travelling</h3>
+                                                </div> -->
+                                                <!-- <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <input type="text" required>
+                                                                <label for="name">First Name  <span>*</span></label>
+                                                            </div>
+                                                        </div> -->
+                                                        <!-- <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <input type="text" required>
+                                                                <label for="name">Last Name  <span>*</span></label>
+                                                            </div>
+                                                        </div> -->
+                                                        <!-- <div class="col-lg-4">
+                                                            <div class="form-group">
+                                                                <input type="text" id="insuranceDate" class="insuranceDate" name="insuranceDate"
+                                                                    placeholder="dd/mm/yy">
+
+                                                                <label for="email">Date of Birth <span>*</span></label>
+                                                            </div>
+                                                        </div> -->
+                                                        <!-- <div class="col-lg-4">
+                                                            <div class="form-group ">
+                                                                <input type="text" required>
+                                                                <label for="subject">Price </label>
+                                                            </div>
+                                                        </div> -->
+                                                        <!-- <div class="col-lg-4">
+                                                            <div class="form-group ">
+                                                                <select id="" name="" class="select2">
+                                                                    <option value="male">Male</option>
+                                                                    <option value="female">Female</option>
+                                                                    <option value="non-binary">Non-Binary</option>
+                                                                    <option value="prefer-not-to-say">Prefer not to say</option>
+                                                                    <option value="other">Other</option>
+                                                                </select>
+                                                                <label for="subject">Gender <span>*</span></label>
+                                                            </div>
+                                                        </div> -->
+
+                                                        
+
+                                                    
+
+                                                        <!-- <div class="col-lg-4">
+                                                            <div class="form-group ">
+                                                                <input type="text" required>
+                                                                <label for="subject">Passport/ID Number <span>*</span></label>
+                                                            </div>
+                                                        </div> -->
+
+                                                        <!-- <div class="col-lg-12">
+                                                            <div class="form-group ">
+                                                                <input name="file1" type="file" class="dropify" data-height="100" />
+
+                                                                <label for="subject">Upload Passport <span>*</span></label>
+                                                            </div>
+                                                        </div> -->
+
+                                        
+                                                <!-- </div>
+                                            </div> -->
+                                            
+                                            </div>
+                                            <div class="wizard-footer">
+                                                            <div class="actions">
+                                                                <ul>
+                                                                    <li><span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK</span></li>
+                                                                    <li><span class="js-btn-next" title="NEXT" id="insurance_submitBtn">NEXT <i class="fa fa-arrow-right"></i></span></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
                                         </div>
-                                        <div class="wizard-footer">
-                                                        <div class="actions">
-                                                              <ul>
-                                                                <li><span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK</span></li>
-                                                                  <li><span class="js-btn-next" title="NEXT">NEXT <i class="fa fa-arrow-right"></i></span></li>
-                                                              </ul>
-                                                          </div>
-                                                      </div>
-                                    </div>
                                     <!--single form panel-->
                                     <div class="multisteps-form__panel" data-animation="slideVert">
-                                        <div class="Form_startmain">
+                                        <div class="Form_startmain" id="Form_startmain_data">
                                             <div class="row">
                                                 <div class="col-lg-12 px-0">
                                                   <div class="person_bx">
@@ -645,7 +662,7 @@
                                                         <div class="actions">
                                                               <ul>
                                                                 <li><span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK</span></li>
-                                                                  <li><span class="" title="NEXT">PAY NOW <i class="fa fa-arrow-right"></i></span></li>
+                                                                  <li><span class="" title="NEXT" id="purchase_insurance">PAY NOW <i class="fa fa-arrow-right"></i></span></li>
                                                               </ul>
                                                           </div>
                                                       </div>

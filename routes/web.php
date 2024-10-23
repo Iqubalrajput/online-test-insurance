@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\InsuranceController;
+use App\Http\Controllers\InsurancePurchaseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +31,7 @@ Route::get('/insurances', [InsuranceController::class, 'index'])->name('insuranc
 Route::get('/insurances-details', function () {
     return view('insurances_details');
 });
+Route::get('/insurances-details', [InsuranceController::class, 'show_insurance'])->name('insurances.details');
 
 
 Route::get('/contact-us', function () {
@@ -49,8 +51,11 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/insurances-form', function () {
-        return view('insurances-form');
+        $user = Auth::user();
+        return view('insurances-form', compact('user'));
     });
+    Route::post('/purchase-insuranse', [InsurancePurchaseController::class, 'store'])->name('purchase.insuranse');
+
     Route::get('/profile', [AuthController::class, 'show'])->name('profile.show');
     Route::post('/user/update', [AuthController::class, 'update'])->name('user.update');
     Route::post('/password/update', [AuthController::class, 'updatePassword'])->name('password.update');
