@@ -44,7 +44,7 @@ class InsurancePurchaseController extends Controller
     //     'persons.*.passport_id' => 'nullable|string',
     //     // अन्य वैलिडेशन नियम यहाँ जोड़ें
     // ]);
-
+    $passportPath = null;
     // Store each person's record
     foreach ($request['persons'] as $person) {
         if (isset($person['passport_file']) && $person['passport_file'] instanceof \Illuminate\Http\UploadedFile) {
@@ -62,7 +62,7 @@ class InsurancePurchaseController extends Controller
             'insurance_start' => $person['insurance_start'] ?? now(),
             'marital_status' => $person['marital_status'] ?? 'Single',
             'gender' => $person['gender'] ?? 'Not Specified',
-            'destination' => $person['destination'] ?? 'Unknown',
+            'destination' => $person['destination'] ?? 'N/A',
             'passport_id' => $person['passport_id'] ?? 'N/A',
             'uploaded_passport' => $passportPath,
         ]);
